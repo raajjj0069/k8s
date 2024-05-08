@@ -55,8 +55,33 @@ kubectl exec -it my-pod -c my-pod-container /bin/bash
 # View available API resources in the cluster
 kubectl api-resources
 
+<<<<<<< HEAD
 # Delete a pod named "my-pod"
 kubectl delete pod my-pod
+=======
+---------------------------------------------------------
+kubectl get namespaces 
+
+kubectl get ns
+
+kubectl create ns dev 
+
+kubectl describe namespace <namespace-name>
+
+kubectl delete namespace <namespace-name>
+
+kubectl get -n dev all
+
+kubectl get pods -n dev 
+
+kubectl run my-pod --image=nginx -n dev 
+
+kubectl apply -f <manifest-file.yaml> -n <namespace-name>
+
+-------------------------------------------------------------------------
+
+kubectl get deploy 
+>>>>>>> 64ef9d8fa4c8f6cd8dfd12e70b1639f76644c12d
 
 # View deployments in the cluster
 kubectl get deploy
@@ -76,8 +101,34 @@ kubectl scale rs --replicas=0 my-rs
 # Edit the deployment named "my-deployment"
 kubectl edit deploy my-deployment
 
+<<<<<<< HEAD
 # View available API resources in the cluster
 kubectl api-resources
 
 # Scale a stateful set named "my-ss" to 2 replicas
 kubectl scale statefulset my-ss --replicas 2
+=======
+kubectl scale statefulset my-ss --replicas 2 
+
+--------------------------------------------------------------------
+
+kubectl get configmap 
+
+kubectl get cm 
+
+kubectl describe configmap my-vars 
+
+kubectl exec -it my-ss-0 -- bash 
+
+env 
+
+------------------------------------------------- 
+
+echo -n "Redhat" | base64 
+
+kubectl get secret 
+
+kubectl describe secret my-sec 
+
+
+>>>>>>> 64ef9d8fa4c8f6cd8dfd12e70b1639f76644c12d
