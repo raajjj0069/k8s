@@ -4,7 +4,7 @@ metadata:
   name: my-svc-deploy
 spec: 
   selector: 
-    app: student-app
+    app: cbz-app
   ports: 
   - name: http 
     targetPort: 80 

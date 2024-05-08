@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata: 
   name: my-vars 
 data: 
-  DB_USER_NAME: "Admin" 
+  DB_USER: "Admin" 
   DB_PASSWORD: "Redhat" 
