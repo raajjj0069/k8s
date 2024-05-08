@@ -1,55 +1,83 @@
-aws eks update-kubeconfig --region us-east-1 --name my-cluster 
-  
-kubectl cluster-info 
+# Update kubeconfig to configure access to the cluster
+aws eks update-kubeconfig --region us-east-1 --name my-cluster
 
-kubectl get nodes 
+# View information about the Kubernetes cluster
+kubectl cluster-info
 
-kubectl get nodes -o wide 
+# View the list of nodes in the cluster
+kubectl get nodes
 
+# View detailed information about nodes, including IP addresses
+kubectl get nodes -o wide
+
+# Create a pod named "my-first-pod" using the nginx image
 kubectl run my-first-pod --image=nginx
 
-kubectl get pods 
+# View the list of pods in the cluster
+kubectl get pods
 
-kubectl get -o wide pods  
+# View detailed information about pods, including IP addresses
+kubectl get -o wide pods
 
-kubectl describe pod my-first-pod 
+# View detailed information about a specific pod
+kubectl describe pod my-first-pod
 
-kubectl run my-pod --port=80 --image=nginx 
+# Run a pod named "my-pod" with port 80 exposed using the nginx image
+kubectl run my-pod --port=80 --image=nginx
 
-kubectl logs my-pod 
+# View the logs of a pod named "my-pod"
+kubectl logs my-pod
 
+# View the logs of a specific container within a pod
 kubectl logs -c <container_name> <pod_name>
 
-kubectl explain pods  
--------------------------------------------------
-kubectl expose pod my-first-pod --port=80 --type=clusterIP 
+# View information about Kubernetes resources
+kubectl explain pods
 
-kubectl get service 
+# Expose a pod named "my-first-pod" on port 80 with a ClusterIP service
+kubectl expose pod my-first-pod --port=80 --type=clusterIP
 
-kubectl expose pod my-first-pod --port=80 --target-port=80 --type=NodePor 
+# View information about services in the cluster
+kubectl get service
 
-kubectl expose pod my-pod --name my-pod-lb --type=LoadBalancer --port=80 --target-port=80 
+# Expose a pod named "my-first-pod" on port 80 with a NodePort service
+kubectl expose pod my-first-pod --port=80 --target-port=80 --type=NodePort
 
-kubectl apply -f pod.yaml 
+# Expose a pod named "my-pod" as a LoadBalancer service on port 80
+kubectl expose pod my-pod --name my-pod-lb --type=LoadBalancer --port=80 --target-port=80
 
-kubectl exec -it my-pod -c my-pod-container /bin/bash 
+# Apply configurations from a YAML file (e.g., pod.yaml)
+kubectl apply -f pod.yaml
 
+# Execute a shell in a specific container within a pod
+kubectl exec -it my-pod -c my-pod-container /bin/bash
+
+# View available API resources in the cluster
 kubectl api-resources
- 
-kubectl delete pod my-pod 
 
-kubectl get deploy 
+# Delete a pod named "my-pod"
+kubectl delete pod my-pod
 
-kubectl get pods 
+# View deployments in the cluster
+kubectl get deploy
 
-kubectl get rs 
+# View pods managed by a deployment
+kubectl get pods
 
-kubectl edit rs my-rs 
+# View replica sets in the cluster
+kubectl get rs
 
-kubectl scale rs --replicas=0 my-rs 
+# Edit the replica set named "my-rs"
+kubectl edit rs my-rs
 
-kubectl edit deploy my-deployment 
+# Scale down the replica set named "my-rs" to 0 replicas
+kubectl scale rs --replicas=0 my-rs
 
-kubectl api-resources  
+# Edit the deployment named "my-deployment"
+kubectl edit deploy my-deployment
 
+# View available API resources in the cluster
+kubectl api-resources
+
+# Scale a stateful set named "my-ss" to 2 replicas
 kubectl scale statefulset my-ss --replicas 2
