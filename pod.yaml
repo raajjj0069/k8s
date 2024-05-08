@@ -10,3 +10,4 @@ spec:
       - name: http
         protocol: TCP
         containerPort: 80
+        

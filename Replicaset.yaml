@@ -6,9 +6,9 @@ spec:
   replicas: 3
   selector:
     matchExpressions:
-      - key: "app"
-        operator: "In"
-        values: ["xyz-app", "cbz-app"]
+      - {key: "app",
+        operator: "In",
+        values: ["xyz-app", "cbz-app"]}
   template: 
     metadata: 
       labels:
@@ -21,3 +21,5 @@ spec:
           - name: http
             protocol: TCP
             containerPort: 80
+
+            
